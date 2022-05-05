@@ -48,9 +48,13 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         recPacket, addr = mySocket.recvfrom(1024)
 
         # Fill in start
-
+        if recPacket == 0 && ID== mySocket:
+            delay = timeReceived - time
+            return delay
         # Fetch the ICMP header from the IP packet
 
+        lst.append(delay)
+        
         # Fill in end
         timeLeft = timeLeft - howLongInSelect
         if timeLeft <= 0:
@@ -101,6 +105,7 @@ def doOnePing(destAddr, timeout):
 def ping(host, timeout=1):
     # timeout=1 means: If one second goes by without a reply from the server,
     # the client assumes that either the client's ping or the server's pong is lost
+    lst = []
     dest = gethostbyname(host)
     print("Pinging " + dest + " using Python:")
     print("")
@@ -115,7 +120,7 @@ def ping(host, timeout=1):
 
     # You should have the values of delay for each ping here; fill in calculation for packet_min, packet_avg, packet_max, and stdev
      vars = [str(round(packet_min, 8)), str(round(packet_avg, 8)), str(round(packet_max, 8)),str(round(stdev(stdev_var), 8))]
-    return vars
+     return vars
 
 
 if __name__ == '__main__':
