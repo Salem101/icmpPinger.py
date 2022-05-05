@@ -117,7 +117,7 @@ def ping(host, timeout=1):
         print(delay)
         lst.append(delay)
         time.sleep(1)  # one second
-        totalDelay += delay 
+        totalDelay = totalDelay + delay 
      
     packet_min = min (lst)
     packet_avg = sum(lst)/len(lst)
