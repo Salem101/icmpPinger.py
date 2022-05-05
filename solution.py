@@ -54,7 +54,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         # Fetch the ICMP header from the IP packet
 
         lst.append(delay)
-        
+
         # Fill in end
         timeLeft = timeLeft - howLongInSelect
         if timeLeft <= 0:
@@ -105,12 +105,19 @@ def doOnePing(destAddr, timeout):
 def ping(host, timeout=1):
     # timeout=1 means: If one second goes by without a reply from the server,
     # the client assumes that either the client's ping or the server's pong is lost
+    count = 0 
     lst = []
     dest = gethostbyname(host)
     print("Pinging " + dest + " using Python:")
     print("")
-
+    try: 
+        while True: 
+            count += 1
+            print doOnePing(dest, timeout)
+            time.sleep(1)
     # Send ping requests to a server separated by approximately one second
+    
+    
     # Add something here to collect the delays of each ping in a list so you can calculate vars after your ping
 
     for i in range(0, 4):  # Four pings will be sent (loop runs for i=0, 1, 2, 3)
