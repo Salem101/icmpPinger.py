@@ -106,7 +106,7 @@ def ping(host, timeout=1):
     dest = gethostbyname(host)
     print("Pinging " + dest + " using Python:")
     print("")
-    lst[]
+    lst = []
     totalDelay = 0 
 
     #Send ping requests to a server separated by approximately one second
