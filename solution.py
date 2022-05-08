@@ -108,7 +108,6 @@ def ping(host, timeout=1):
     print("Pinging " + dest + " using Python:")
     print("")
     lst = []
-    totalDelay = 0 
 
     #Send ping requests to a server separated by approximately one second
     #Add something here to collect the delays of each ping in a list so you can calculate vars after your ping
@@ -118,7 +117,6 @@ def ping(host, timeout=1):
         print(delay)
         lst.append(delay)
         time.sleep(1)  # one second
-        totalDelay = totalDelay + delay 
      
     packet_min = min (lst)
     packet_avg = sum(lst)/len(lst)
